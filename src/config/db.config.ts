@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize-typescript");
+const path = require("path");
 
 const sequelize = new Sequelize({
   dialect: "postgres",
@@ -7,7 +8,7 @@ const sequelize = new Sequelize({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  models: [__dirname + "/models"],
+  models: [path.join(__dirname, "../models")],
 });
 
 module.exports = sequelize;
